@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package greet;
+
+// 服务定义
+service Greeter {
+  // 一元 RPC
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+
+  // 服务器流式 RPC
+  rpc LotsOfReplies (HelloRequest) returns (stream HelloReply) {}
+
+  // 客户端流式 RPC
+  rpc LotsOfGreetings (stream HelloRequest) returns (HelloReply) {}
+
+  // 双向流式 RPC
+  rpc BidiHello (stream HelloRequest) returns (stream HelloReply) {}
+}
+
+// 请求消息
+message HelloRequest {
+  string name = 1;
+}
+
+// 响应消息
+message HelloReply {
+  string message = 1;
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package demo;
+option java_outer_classname = "PersonProto";
+
+// 定义一个消息类型 Person
+message Person {
+  string name = 1;
+  int32 id = 2;  // 假设 ID 是唯一的
+  string email = 3;
+}
